@@ -1,18 +1,20 @@
-import { Box, HStack } from "@chakra-ui/react";
-import { ListFloatingButtons } from "../components/ListFloatingButtons";
-import useScreenWidth from "../lib/useScreenWidth";
-import { IntroSection } from "../sections/IntroSection";
-import { DesktopView } from "./DesktopView";
+import { HStack } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-import { ImageSection } from "../sections/ImageSection";
+import { ListFloatingButtons } from "../components/ListFloatingButtons";
 import { RootSection } from "../components/RootSection";
+import useScreenWidth from "../lib/useScreenWidth";
+import { ImageSection } from "../sections/ImageSection";
+import { IntroSection } from "../sections/IntroSection";
+import { WelcomeSection } from "../sections/WelcomeSection";
 import { playAudio } from "../utils/helper";
+import { DesktopView } from "./DesktopView";
 
 export const Landing = () => {
   const [isIntroVisible, setIntroVisible] = useState<boolean>(true);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const sw = useScreenWidth();
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const welcomeSectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (isPlaying && !isIntroVisible && audioRef.current) {
@@ -29,6 +31,12 @@ export const Landing = () => {
     }
   }, [isIntroVisible]);
 
+  const scrollToNextSection = () => {
+    if (welcomeSectionRef.current) {
+      welcomeSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <HStack
       className="root-landing"
@@ -36,6 +44,9 @@ export const Landing = () => {
       h={"100%"}
       minH={"100dvh"}
       bgImage={sw > 1024 ? "/images/bg-primary.webp" : undefined}
+      bgRepeat={"no-repeat"}
+      bgSize={"cover"}
+      bgPos={"center"}
       alignItems={"start"}
       justify={"center"}
       position={"relative"}
@@ -53,7 +64,15 @@ export const Landing = () => {
           {isIntroVisible ? (
             <IntroSection onOpenNextSection={() => setIntroVisible(false)} />
           ) : (
-            <ImageSection />
+            <>
+              <ImageSection
+                scrollToWelcomeSection={() => {
+                  scrollToNextSection();
+                }}
+              />
+
+              <WelcomeSection welcomeSectionRef={welcomeSectionRef} />
+            </>
           )}
         </RootSection>
       </HStack>
