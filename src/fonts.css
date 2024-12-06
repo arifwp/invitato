@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Butler";
+  src: url("../public/fonts/butler/Butler-Free-Lgt.ttf") format("truetype");
+  font-weight: 300; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Butler";
+  src: url("../public/fonts/butler/Butler-Free-Rmn.ttf") format("truetype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Butler";
+  src: url("../public/fonts/butler/Butler-Free-Med.ttf") format("truetype");
+  font-weight: 500; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Butler";
+  src: url("../public/fonts/butler/Butler-Free-SBd.ttf") format("truetype");
+  font-weight: 600; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Butler";
+  src: url("../public/fonts/butler/Butler-Free-Bd.ttf") format("truetype");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
