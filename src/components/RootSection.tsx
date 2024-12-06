@@ -12,6 +12,7 @@ export const RootSection = ({ children, ...rest }: Props) => {
       maxW={"500px"}
       h={"100%"}
       minH={"100dvh"}
+      overflowY={"scroll"}
     >
       {children}
     </VStack>
