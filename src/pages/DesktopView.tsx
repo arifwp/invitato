@@ -28,6 +28,7 @@ export const DesktopView = () => {
             variant="poppins"
             fontSize={["lg", null, "xl"]}
             fontWeight="bold"
+            letterSpacing={2}
           >
             WEDDING ANNOUNCEMENT
           </Text>
@@ -63,15 +64,15 @@ export const DesktopView = () => {
           offsetY={"100px"}
           transition={{ enter: { duration: 1 } }}
         >
-          <VStack w={"100%"} align={"stretch"} as={"i"}>
-            <Text fontSize={["xl", null, "2xl"]} variant={"butler"}>
+          <VStack w={"100%"} maxW={"800px"} align={"stretch"} as={"i"}>
+            <Text fontSize={["lg", null, "xl"]} variant={"butler"}>
               "Aku ingin mencintaimu dengan sederhana; dengan kata yang tak
               sempat diucapkan kayu kepada api yang menjadikannya abu. Aku ingin
               mencintaimu dengan sederhana; dengan isyarat yang tak sempat
               disampaikan awan kepada hujan yang menjadikannya tiada."
             </Text>
 
-            <Text fontSize={"md"} variant={"butler"}>
+            <Text fontSize={["lg", null, "xl"]} variant={"butler"}>
               — Sapardi Djoko Damono
             </Text>
           </VStack>
