@@ -48,9 +48,10 @@ export const IntroSection = ({ onOpenNextSection, ...rest }: Props) => {
         <Text
           mt={20}
           variant="poppins"
-          fontSize="md"
+          fontSize={["md", null, "lg"]}
           fontWeight="bold"
           justifySelf={"start"}
+          letterSpacing={2}
         >
           WEDDING ANNOUNCEMENT
         </Text>
@@ -65,27 +66,27 @@ export const IntroSection = ({ onOpenNextSection, ...rest }: Props) => {
               #TImetoshaRE
             </Text>
           </VStack>
-
-          <Button
-            w={"100px"}
-            h={"30px"}
-            mt={4}
-            borderRadius={0}
-            borderWidth={"1px"}
-            borderColor={"black"}
-            bg={"white"}
-            fontFamily={"butler"}
-            fontWeight={"400"}
-            as={"i"}
-            transition="all .25s ease"
-            cursor={"pointer"}
-            animation={bounceAnimation}
-            onClick={moveNextSection}
-            _hover={{ opacity: 0.5 }}
-          >
-            Open
-          </Button>
         </VStack>
+
+        <Button
+          w={"100px"}
+          h={"30px"}
+          mb={10}
+          borderRadius={0}
+          borderWidth={"1px"}
+          borderColor={"black"}
+          bg={"white"}
+          fontFamily={"butler"}
+          fontWeight={"400"}
+          as={"i"}
+          transition="all .25s ease"
+          cursor={"pointer"}
+          animation={bounceAnimation}
+          onClick={moveNextSection}
+          _hover={{ opacity: 0.5 }}
+        >
+          Open
+        </Button>
       </VStack>
     </VStack>
   );
