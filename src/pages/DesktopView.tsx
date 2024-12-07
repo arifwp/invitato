@@ -3,21 +3,28 @@ import { SlideFade, Text, VStack } from "@chakra-ui/react";
 export const DesktopView = () => {
   return (
     <VStack
-      className="desktop-view"
-      w={"100%"}
+      w={"calc(100% - 500px)"}
       h={"100%"}
-      minH={"100dvh"}
+      position="fixed"
+      top={0}
+      left={0}
+      zIndex={1}
       bgImage={"/images/bg-primary.webp"}
       bgSize={"cover"}
+      bgPos={"center"}
+      bgBlendMode={"overlay"}
+      bgColor={"#00000080"}
       color={"white"}
+      overflowY={"clip"}
     >
       <VStack
-        w={"100%"}
-        h={"100dvh"}
+        w={"calc(100vw - 500px)"}
+        h={"100%"}
         p={10}
-        bgColor={"#00000080"}
-        align={"stretch"}
         gap={10}
+        mr={3}
+        bgColor={"#FFFFFF20"}
+        align={"start"}
       >
         <SlideFade
           in={true}

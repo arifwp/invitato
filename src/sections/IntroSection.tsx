@@ -1,12 +1,7 @@
-import { Button, StackProps, Text, VStack } from "@chakra-ui/react";
+import { StackProps, Text, VStack } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
 import { useState } from "react";
-
-const spin = keyframes`  
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-`;
+import { PrimaryButton } from "../components/PrimaryButton";
 
 const slideOut = keyframes`
   0% { transform: translateY(0); opacity: 1; }
@@ -19,23 +14,23 @@ interface Props extends StackProps {
 
 export const IntroSection = ({ onOpenNextSection, ...rest }: Props) => {
   const [isExit, setIsExit] = useState<boolean>(false);
-  const bounceAnimation = `${spin} infinite 2s linear`;
   const slideOutAnimation = `${slideOut} 0.5s forwards`;
 
   const moveNextSection = () => {
     setIsExit(true);
-    setTimeout(onOpenNextSection, 500); // Adjust duration to match animation timing
+    setTimeout(onOpenNextSection, 500);
   };
 
   return (
     <VStack
-      className="intro-section"
+      className="intro-secti¡on"
       w={"100%"}
       bgImage={"/images/bg-intro.webp"}
       bgSize={"cover"}
       bgRepeat={"no-repeat"}
       bgPos={"center"}
       animation={isExit ? slideOutAnimation : "none"}
+      {...rest}
     >
       <VStack
         w={"100%"}
@@ -68,25 +63,9 @@ export const IntroSection = ({ onOpenNextSection, ...rest }: Props) => {
           </VStack>
         </VStack>
 
-        <Button
-          w={"100px"}
-          h={"30px"}
-          mb={10}
-          borderRadius={0}
-          borderWidth={"1px"}
-          borderColor={"black"}
-          bg={"white"}
-          fontFamily={"butler"}
-          fontWeight={"400"}
-          as={"i"}
-          transition="all .25s ease"
-          cursor={"pointer"}
-          animation={bounceAnimation}
-          onClick={moveNextSection}
-          _hover={{ opacity: 0.5 }}
-        >
+        <PrimaryButton py={1} px={14} as={"i"} onClick={moveNextSection}>
           Open
-        </Button>
+        </PrimaryButton>
       </VStack>
     </VStack>
   );

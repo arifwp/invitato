@@ -10,9 +10,9 @@ export const RootSection = ({ children, ...rest }: Props) => {
       className="root-section"
       w={"100%"}
       maxW={"500px"}
-      h={"100%"}
-      minH={"100dvh"}
+      maxH={"100dvh"}
       overflowY={"scroll"}
+      zIndex={2}
     >
       {children}
     </VStack>
